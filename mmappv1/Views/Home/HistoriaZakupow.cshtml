@@ -4,11 +4,10 @@
 }
 
 <h1>Historia zakupów PPV</h1>
-
 @if (Model.Any())
 {
     <table>
-        <thead>
+         <thead>
             <tr>
                 <th>ID</th>
                 <th>Szczegóły Zakupu</th>
@@ -27,5 +26,5 @@
 }
 else
 {
-    <p>Brak zakupów do wyświetlenia.</p>
+    <p>@ViewBag.Message</p>
 }
