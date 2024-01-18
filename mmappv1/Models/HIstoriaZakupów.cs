@@ -7,6 +7,6 @@ namespace mmappv1.Models
     public class PurchaseHistory
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
     }
 }
