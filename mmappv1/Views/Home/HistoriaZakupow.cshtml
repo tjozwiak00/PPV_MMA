@@ -1,0 +1,31 @@
+﻿namespace mmappv1.Views.Home
+@{
+    ViewData["Title"] = "HistoriaZakupów";
+}
+
+<h1>Historia zakupów PPV</h1>
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Szczegóły Zakupu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var zakup in Model)
+            {
+                <tr>
+                    <td>@zakup.Id</td>
+                    <td>@zakup.SzczegolyZakupu</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Brak zakupów do wyświetlenia.</p>
+}

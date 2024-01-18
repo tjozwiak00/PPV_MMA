@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Karta Walk";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+     text-align: center;
+     color: #333;
+     font-size: 36px;
+     margin-bottom: 20px;
+     animation: fadeInDown 1s;
+}
+
+.walka {
+     border: 1px solid #ddd;
+     margin-bottom: 20px;
+     padding: 15px;
+     background-color: #fff;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     animation: fadeInUp 1s;
+     transition: transform 0.3s ease-in-out;
+}
+
+.walka:hover {
+     transform: scale(1.02);
+}
+
+.walka img {
+     max-width: 100%;
+     height: auto;
+     border-radius: 8px;
+     margin-bottom: 10px;
+}   
+
+.walka h2 {
+     margin-top: 0;
+     font-size: 24px;
+     color: #333;
+}
+
+ .walka p {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #555;
+}
+
+</style>
+</head>
+<body>
+    <h1>WSB MMA</h1>
+        <center>
+        <p>Data: 22 luty 2024</p>
+        <p>Godzina: 20:00</p>
+        <p>Lokalizacja: Hala Sportowa UAM Poznań</p>
+        </center>
+    <div class="walka">
+        <center>
+            <img src="/Images/1.jpg" alt="Walka 1"  width="200" height="200"> vs <img src="/Images/1.jpg" alt="Walka 1"  width="200" height="200">
+            <p>Formuła Walki: MMA</p>
+            <p>Waga: 73,5kg</p>
+            <p>Wzrost: 178cm</p>
+            <p>Miejscowość: Toruń</p>
+        </center>
+    </div>
+    <div class="walka">
+        <center>
+            <img src="/Images/1.jpg" alt="Walka 2"  width="200" height="200"> vs <img src="/Images/1.jpg" alt="Walka 2"  width="200" height="200">
+            <p>Formuła Walki: K1</p>
+            <p>Waga: 80kg</p>
+            <p>Wzrost: 190cm</p>
+            <p>Miejscowość: Poznań</p>
+        </center>
+    </div>
+</body>
