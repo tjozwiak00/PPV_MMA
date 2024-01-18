@@ -19,7 +19,7 @@ namespace mmappv1.Controllers
         public IActionResult PurchaseHistory()
         {
             // Get the currently logged-in user's ID
-            string userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            string userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value;
 
             // Check if there are any transactions for the user
             var transactions = _context.PurchaseHistory

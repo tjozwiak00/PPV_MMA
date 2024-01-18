@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var isAuthenticated = User?.Identity?.IsAuthenticated ?? false;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -28,7 +31,7 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="HistoriaZakupow">Historia Zakupów</a>
                         </li>
-                         @if (User.Identity.IsAuthenticated)
+                         @if (isAuthenticated)
                             {
                                 <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="KupPPV">Kup PPV</a>
