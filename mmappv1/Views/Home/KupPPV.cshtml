@@ -12,6 +12,7 @@
     <h2 class="animate__animated animate__fadeInDown">Kup PPV - wypełnij formularz poniżej i ciesz się dostępem do transmisji!</h2>
 </center>
 <section class="ppv-section">
+    <form id="purchasePPVForm" asp-controller="Form" asp-action="PurchasePPV" method="post">
     <div class="ppv-form animate__animated animate__fadeInUp">
         <label for="fullName">Imię i Nazwisko:</label>
         <input type="text" id="fullName" name="fullName" required>
@@ -25,8 +26,9 @@
         <label for="cvv">CVV:</label>
         <input type="text" id="cvv" name="cvv" required>
 
-        <button class="purchase-ppv-button" onclick="purchasePPV()">Kup PPV</button>
+        <button class="purchase-ppv-button" type="submit" form="purchasePPVForm">Kup PPV</button>
     </div>
+    </form>
 </section>
 <style>
 .ppv-section {
