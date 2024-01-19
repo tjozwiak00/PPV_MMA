@@ -15,6 +15,9 @@ namespace mmappv1.Data
 
         // Ensure that your DbSet properties are initialized
         public DbSet<PurchaseHistory> PurchaseHistory { get; set; } = null!;
+
+        // Ensure that your DbSet properties are initialized
+        public DbSet<mmappv1.Models.ModelZakup>? ModelZakup { get; set; }
         // Add similar initialization for other DbSet properties if applicable
     }
 
