@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using mmappv1.Data;
 using mmappv1.Models;
 using System.Diagnostics;
 
@@ -7,12 +8,19 @@ namespace mmappv1.Controllers
 {
     public class FormController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public FormController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         [HttpPost]
         public async Task<IActionResult> PurchasePPV([FromForm] ModelZakup model)
         {
+            
             try
             {
-                using (var db = new DatabaseContext())
+                using (var dbContext = new DatabaseContext())
                 {
                     var zakup = new Zakup
                     {
@@ -22,8 +30,8 @@ namespace mmappv1.Controllers
                         Cvv = model.cvv
                     };
 
-                    db.Zakups.Add(zakup);
-                    await db.SaveChangesAsync();
+                    dbContext.Zakups.Add(zakup);
+                    await dbContext.SaveChangesAsync();
                 }
                 return RedirectToAction("KartaWalk", "Home");
             }
