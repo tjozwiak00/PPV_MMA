@@ -29,13 +29,11 @@ public IActionResult Privacy()
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Authorize] 
         public IActionResult KupPPV()
         {
             return View();
         }
 
-        [Authorize]
         public IActionResult HistoriaZakupow()
         {
             return View();

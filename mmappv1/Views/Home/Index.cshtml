@@ -22,16 +22,19 @@ h1 {
     animation: fadeInDown 1s;
 }
 .reminder-container {
-    background-color: #ffecb3;
-    border: 1px solid #ffb74d;
+    color: white;
+    background-color: #2b2b2b;
+    border: 1px solid #4B0082;
     border-radius: 8px;
+    font-size: 20px;
     padding: 15px;
-    margin-bottom: 20px;
     animation: fadeInUp 1s;
+    margin-top: 5%;
 }
+
 .reminder-text {
     font-size: 18px;
-    color: #e65100;
+    color: white;
 }
 .register-button {
     background-color: #4caf50;
@@ -51,10 +54,12 @@ h1 {
 }
 </style>
 </head>
-
 <center>
-<div class="reminder-container">
-    <p class="reminder-text">Zapraszamy do wykupienia dostępu PPV! Tylko zarejestrowani użytkownicy mają pełny dostęp do transmisji walk.</p>
-    <button class="register-button" onclick="location.href='Identity/Account/Register'">Zarejestruj się teraz</button>
-</div>
+@if (!User.Identity.IsAuthenticated)
+    {
+        <div class="reminder-container">
+            <p class="reminder-text">Zapraszamy do wykupienia dostępu PPV! Tylko zarejestrowani użytkownicy mają pełny dostęp do transmisji walk.</p>
+            <button class="register-button" onclick="location.href='Identity/Account/Register'">Zarejestruj się teraz</button>
+        </div>
+}
 </center>
