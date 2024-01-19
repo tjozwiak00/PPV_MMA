@@ -5,9 +5,8 @@ using mmappv1.Models;
 
 namespace mmappv1.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
-        // Existing properties or DbSet declarations
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

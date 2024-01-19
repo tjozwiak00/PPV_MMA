@@ -7,3 +7,65 @@ namespace mmappv1.Views.Home
     ViewData["Title"] = "Kup PPV"; 
 
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<center>
+    <h2 class="animate__animated animate__fadeInDown">Kup PPV - wypełnij formularz poniżej i ciesz się dostępem do transmisji!</h2>
+</center>
+<section class="ppv-section">
+    <div class="ppv-form animate__animated animate__fadeInUp">
+        <label for="fullName">Imię i Nazwisko:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="cardNumber">Numer Karty Kredytowej:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+
+        <label for="expirationDate">Data Ważności:</label>
+        <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/RR" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
+
+        <button class="purchase-ppv-button" onclick="purchasePPV()">Kup PPV</button>
+    </div>
+</section>
+<style>
+.ppv-section {
+    margin-top: 60px;
+    text-align: center;
+}
+.ppv-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.ppv-form label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.ppv-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #e44d26;
+    border-radius: 5px;
+}
+
+.purchase-ppv-button {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: #2b2b2b;
+    border: 1px solid #e44d26;
+    border-radius: 5px;
+}
+
+</style>
