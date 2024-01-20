@@ -1,0 +1,144 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+        }
+
+        .reminder-container {
+            color: white;
+            background-color: #2b2b2b;
+            border: 1px solid #4B0082;
+            border-radius: 8px;
+            font-size: 20px;
+            padding: 15px;
+            animation: fadeInUp 1s;
+            margin-top: 2%;
+            width: 50%;
+        }
+
+        .reminder-text {
+            font-size: 18px;
+            color: white;
+        }
+
+        .register-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .register-button:hover {
+            background-color: #45a049;
+        }
+
+        .video-container {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ytvideo {
+            width: 80%;
+            height: 80vh;
+            float: left;
+        }
+        
+        .chat {
+            display: flex;
+            flex-direction: column;
+            margin-left: 40px;
+            width: 250px; 
+            height: 80vh;
+            background-color: #f4f4f4;
+        }
+
+        #messagesList {
+            list-style-type: none;
+            padding: 0;
+            overflow-y: auto;
+            flex-grow: 1; 
+        }
+
+        #messageInput {
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        ul{
+            margin: 5px;
+        }
+        li{
+            text-align: left;
+        }
+
+        .container{
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+    </style>
+</head>
+@{
+    string alert = ViewBag.Alert;
+    if (!User.Identity.IsAuthenticated)
+    {
+        <center>
+            <div class="reminder-container">
+                <p class="reminder-text">Tylko zarejestrowani użytkownicy mają pełny dostęp do transmisji walk.</p>
+                <button class="register-button" onclick="location.href='/Identity/Account/Register'">Zarejestruj się teraz</button>
+            </div>
+        </center>
+    }
+    else if (User.Identity.IsAuthenticated && !String.IsNullOrEmpty(alert))
+    {
+        <center>
+            <div class="video-container">
+                <iframe class="ytvideo" src="https://www.youtube.com/embed/mLfz85zWeEA?si=JjOXMlkvcWZEensU&amp;controls=1&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="chat">
+                    <ul id="messagesList"></ul>
+                    <input type="hidden" id="userInput" value="@User.Identity?.Name" />
+                    <input type="text" style="position:sticky;bottom:0;" class="w-100" id="messageInput" placeholder="Napisz swoją wiadomość..." />
+                </div>
+            </div>
+        </center>
+        <script src="~/js/signalr/dist/browser/signalr.js"></script>
+        <script src="~/js/chat.js"></script>
+    }
+    else if (User.Identity.IsAuthenticated && String.IsNullOrEmpty(alert))
+    {
+        <center>
+            <div class="reminder-container">
+                <p class="reminder-text">
+                    Zapraszamy do wykupienia dostępu PPV!
+                </p>
+                <button class="register-button" onclick="location.href='/Histories/Create'">Kup teraz!</button>
+            </div>
+        </center>
+    }
+}

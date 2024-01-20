@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MVP.Models.History>
+
+@{
+    ViewData["Title"] = "Historia";
+}
+
+<h1>Historia</h1>
+@if (!String.IsNullOrEmpty(ViewBag.userHistory))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <!--
+                     <th>
+                Html.DisplayNameFor(model => model.cardNumber)
+                 </th>
+                 <th>
+                Html.DisplayNameFor(model => model.expirationDate)
+                 </th>
+                 <th>
+                Html.DisplayNameFor(model => model.cvv)
+                 </th>
+               -->
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <!--
+                    <td>
+                        Html.DisplayFor(modelItem => item.cardNumber)
+                    </td>
+                    <td>
+                        Html.DisplayFor(modelItem => item.expirationDate)
+                    </td>
+                    <td>
+                        Html.DisplayFor(modelItem => item.cvv)
+                    </td>
+                    -->
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h4>Brak historii zakupów.</h4>
+}

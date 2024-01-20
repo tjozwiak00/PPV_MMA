@@ -1,0 +1,49 @@
+﻿@model MVP.Models.History
+
+@{
+    ViewData["Title"] = "Zakup";
+    DateTime a = DateTime.Now;
+}
+
+<h1>Zakup</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="UserName" class="form-control" value="@User.Identity?.Name"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cardNumber" class="control-label"></label>
+                <input asp-for="cardNumber" class="form-control" />
+                <span asp-validation-for="cardNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="expirationDate" class="control-label"></label>
+                <input asp-for="expirationDate" class="form-control" />
+                <span asp-validation-for="expirationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cvv" class="control-label"></label>
+                <input asp-for="cvv" class="form-control" />
+                <span asp-validation-for="cvv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Data" class="form-control" type="hidden" value="@a" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapłać" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
