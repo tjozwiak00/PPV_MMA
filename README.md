@@ -2,4 +2,4 @@ Przed pierwszym uruchomieniem kodu upewnij się, że na twoim komputerze zainsta
 Upewnij się, że wszystkie zainstalowane pakiety nuget są wersji odpowiadającej wersji .NET.
 
 Przed pierwszym uruchomieniem musisz wykonać polecenie 'update-database' w konsoli menadżera pakietów nuget.
-Podczas pierwszego uruchomienia potrzebne jest stworzenie konta.
+Podczas pierwszego uruchomienia potrzebne jest stworzenie konta aby widzieć wszystkie funkcje, które oferuje nasz program.
